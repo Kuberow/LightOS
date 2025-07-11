@@ -18,3 +18,9 @@ term.setCursorPos(n, y)
 term.setBackgroundColor(colors.gray)
 term.write(" ")
 end
+while true do
+sleep(0)
+local time = os.time()
+term.setCursorPos(1,1)
+print(time)
+end
