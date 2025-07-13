@@ -20,6 +20,7 @@ if fs.exists("root/cmd") then
 else
 fs.makeDir("/root/cmd")
 shell.run("copy /rom/programs/edit.lua /root/cmd/edit.lua")
+shell.run("wget", "https://raw.githubusercontent.com/Kuberow/acli/main/acli.lua", "/root/cmd/acli.lua")
 end
 else
 print("Installing...")
