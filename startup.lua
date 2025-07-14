@@ -1,4 +1,5 @@
 local x, y = term.getSize()
+clear()
 local midx, midy = x / 2, y / 2
 term.setCursorPos(midx - 3, midy)
 term.setCursorBlink(false)
@@ -12,9 +13,14 @@ end
 middle("PowerAnything", midy + 1)
 sleep(2)
 term.clear()
+local services = list("/root/services/")
+for i = 1, all(services)
+shell.run(services[i])
+print(i)
+end
 function kernel()
 term.setCursorPos(1,1)
-print("LightOS 1.0")
+print("LightOS 1.1")
 if fs.exists("root") then
 if fs.exists("root/cmd") then
 else
@@ -24,10 +30,11 @@ shell.run("wget", "https://raw.githubusercontent.com/Kuberow/acli/main/acli.lua"
 end
 else
 print("Installing...")
-print("Recovering Root...")
+print("Installling Root...")
 sleep(3)
 fs.makeDir("root")
 fs.makeDir("root/cmd")
+fs.makeDir("root/services")
 print("Rebooting...")
 sleep(2)
 os.reboot()
