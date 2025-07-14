@@ -13,11 +13,13 @@ end
 middle("PowerAnything", midy + 1)
 sleep(2)
 term.clear()
-local services = list("/root/services/")
-for i = 1, all(services)
-shell.run(services[i])
-print(i)
+local path = "/root/services/"
+local files = fs.list(path)
+
+for i, file in ipairs(files) do
+  shell.run(path..file)
 end
+term.clear()
 function kernel()
 term.setCursorPos(1,1)
 print("LightOS 1.1")
