@@ -2,7 +2,7 @@ fs.makeDir("/root/")
 fs.makeDir("/root/cmd/")
 fs.makeDir("/root/services/")
 local x, y = term.getSize()
-clear()
+term.clear()
 local midx, midy = x / 2, y / 2
 term.setCursorPos(midx - 3, midy)
 term.setCursorBlink(false)
