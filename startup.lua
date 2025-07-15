@@ -46,12 +46,14 @@ while true do
 cd = shell.dir()
 io.write("["..cd.."] ")
 cmd = io.read()
+if not cmd == "" then
 cmdnoarg = cmd:match(cmd:match("^(%S+)"))
 if fs.exists("/root/cmd/"..cmdnoarg..".lua") then
 shell.run("/root/cmd/"..cmd)
 else
 shell.run("/root/cmd/"..cmd..".lua")
 print("Unknown command: "..cmdnoarg)
+end
 end
 end
 end
